@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個別の指導計画作成ツール</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>✨ 個別の指導計画作成ツール ✨</h1>
+
+    <div class="container">
+        <div class="input-section">
+            <div class="header-with-button">
+                <h2>児童の特徴を選択</h2>
+                <button type="button" id="clear-all-features">チェックを全て外す</button>
+            </div>
+            <form id="planning-form">
+                <div class="form-row">
+                    <div class="form-group-large">
+                        <label>特性1 (診断名など):</label>
+                        <div id="disability-features-1" class="checkbox-group">
+                            </div>
+                    </div>
+
+                    <div class="form-group-large">
+                        <label>特性2 (個別特性):</label>
+                        <div id="disability-features-2" class="checkbox-group">
+                            <p class="placeholder">特性1以外の特性がここに表示されます</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="grade">学年:</label>
+                        <select id="grade">
+                            <option value="1">1年生</option>
+                            <option value="2">2年生</option>
+                            <option value="3">3年生</option>
+                            <option value="4">4年生</option>
+                            <option value="5">5年生</option>
+                            <option value="6">6年生</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">教科:</label>
+                        <select id="subject">
+                            <option value="国語">国語</option>
+                            <option value="算数">算数</option>
+                            <option value="理科">理科</option>
+                            <option value="社会">社会</option>
+                            <option value="体育">体育</option>
+                            <option value="外国語">外国語</option>
+                            <option value="図工">図工</option>
+                            <option value="生活">生活</option>
+                            <option value="道徳">道徳</option>
+                            <option value="音楽">音楽</option>
+                            <option value="全教科">全教科</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">指導計画を作成</button>
+            </form>
+        </div>
+
+        <div class="result-section">
+            <h2>提案内容</h2>
+            <div id="result-content">
+                <p class="placeholder">上記のフォームを入力して、指導計画を生成してください。</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="data-list-section">
+            <h2>データ一覧</h2>
+            <div class="search-bar">
+                <input type="text" id="data-search-input" placeholder="キーワードで絞り込み...">
+            </div>
+            <div id="data-list-content">
+                <p class="placeholder">データを読み込み中...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
